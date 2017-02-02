@@ -61,7 +61,6 @@ public class Deque<Item> implements Iterable<Item> {
             while (node.next != null){
                 node = node.next;
             }
-            node = null;
             n--;
             return item;
         }
