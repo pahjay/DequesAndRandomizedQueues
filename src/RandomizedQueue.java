@@ -1,4 +1,7 @@
+import edu.princeton.cs.algs4.StdRandom;
+
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 /**
  * Created by ryan on 1/31/17.
@@ -24,32 +27,48 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
 
     public int size() { return n; }
 
+    // add new element and randomize
     public void enqueue(Item item) {
-        if(n == (a.length * 3/4)) resize(n * 2);
         a[n++] = item;
+        if (n == (a.length * (3 / 4))) resize (n * 2);
+        StdRandom.shuffle(a);
     }
 
     public Item dequeue() {
-        int random = (int) (Math.random() * n);
-        Item item = a[random-1];
-        a[random-1] = null;
+        Item item = a[n-1];
+        a[n-1] = null;
         n--;
-        if(n == (a.length/4)) resize (n / 2);
+        if (n == a.length * (1 / 4)) resize (n / 2);
         return item;
     }
 
     public Item sample() {
-        int random = 0;
-        while(a[random] != null) {
-            random = (int) (Math.random() * n);
-            Item item = a[random];
-            return item;
-        }
+        return a[n];
     }
 
-    public Iterator<Item> iterator() { return new ListIterator(); }
+    public Iterator<Item> iterator() {
+        return new ListIterator();
+    }
 
-    private class ListIterator {
+    // creates new randomized array to iterate through
+    private class ListIterator implements Iterator<Item> {
+        private int i;
+        Item[] randomized = a;
 
+        public ListIterator() {
+            i = n - 1;
+        }
+        public Item next() {
+            if(!hasNext()) throw new NoSuchElementException();
+            return randomized[i--];
+        }
+
+        public boolean hasNext() {
+            return i >= 0;
+        }
+
+        public void remove() {
+            throw new UnsupportedOperationException();
+        }
     }
 }
