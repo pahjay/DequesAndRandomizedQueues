@@ -1,28 +1,12 @@
 
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.Iterator;
-import java.util.ListIterator;
-import java.util.Scanner;
-import edu.princeton.cs.algs4.*;
 
 /**
  * Created by ryan on 2/1/17.
  */
 
-public class Permutation {
+public class PermutationTester {
     public static void main(String[] args){
-
-//        int cycles = Integer.parseInt(args[0]);
-//        RandomizedQueue rand = new RandomizedQueue<>();
-//
-//        for (int i = 0; i < cycles; i++){
-//            rand.enqueue(StdIn.readString());
-//        }
-//
-//        while(rand.iterator().hasNext()) {
-//            System.out.println(rand.iterator().next());
-//        }
         unitTest("permutation4.txt");
     }
 
@@ -43,12 +27,12 @@ public class Permutation {
 //
 //        }
 
+        rand.addFirst("0");
+        rand.removeLast();
 
         Iterator itr = rand.iterator();
+        System.out.println(rand.isEmpty());
 
-        while(itr.hasNext()) {
-            System.out.println(itr.next());
-        }
     }
 
 }

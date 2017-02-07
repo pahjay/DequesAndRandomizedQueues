@@ -17,19 +17,25 @@ public class Deque<Item> implements Iterable<Item> {
         head = null;
         n = 0;
     }
+
+    // BUG: after removing the only element in a list of size one, the head node does not == null
+
     public boolean isEmpty(){ return head == null; }
     public int size(){ return n; }
 
     public void addFirst(Item item){
-        Node node = head;
-        head = new Node();
-        head.item = item;
-        head.next = node;
-        n++;
+            Node node = head;
+            head = new Node();
+            head.item = item;
+            head.next = node;
+            n++;
     }
+
     public void addLast (Item item){
         if(head == null){
             head = new Node();
+            head.item = item;
+            n++;
         } else {
             Node node = head;
             while(node.next != null){
@@ -56,11 +62,17 @@ public class Deque<Item> implements Iterable<Item> {
         if(head == null){
             return null;
         } else {
-            Item item = head.item;
             Node node = head;
+            Node prev = node;
+
             while (node.next != null){
+                prev = node;
                 node = node.next;
             }
+
+            Item item = node.item;
+            prev.next = null;
+
             n--;
             return item;
         }

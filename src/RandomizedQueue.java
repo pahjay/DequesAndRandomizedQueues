@@ -30,15 +30,19 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
     // add new element and randomize
     public void enqueue(Item item) {
         a[n++] = item;
-        if (n == (a.length * (3 / 4))) resize (n * 2);
-        StdRandom.shuffle(a);
+        if (n == a.length) {
+            StdRandom.shuffle(a);
+            resize(n * 2);
+        }
     }
 
     public Item dequeue() {
         Item item = a[n-1];
         a[n-1] = null;
+        if (n == (a.length/2)) {
+            resize(n);
+        }
         n--;
-        if (n == a.length * (1 / 4)) resize (n / 2);
         return item;
     }
 
@@ -56,11 +60,11 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
         Item[] randomized = a;
 
         public ListIterator() {
-            i = n - 1;
+            i = n;
         }
         public Item next() {
             if(!hasNext()) throw new NoSuchElementException();
-            return randomized[i--];
+            return randomized[--i];
         }
 
         public boolean hasNext() {
