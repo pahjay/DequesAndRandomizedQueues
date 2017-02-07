@@ -1,9 +1,3 @@
-
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.Iterator;
-import java.util.ListIterator;
-import java.util.Scanner;
 import edu.princeton.cs.algs4.*;
 
 /**
@@ -13,42 +7,16 @@ import edu.princeton.cs.algs4.*;
 public class Permutation {
     public static void main(String[] args){
 
-//        int cycles = Integer.parseInt(args[0]);
-//        RandomizedQueue rand = new RandomizedQueue<>();
-//
-//        for (int i = 0; i < cycles; i++){
-//            rand.enqueue(StdIn.readString());
-//        }
-//
-//        while(rand.iterator().hasNext()) {
-//            System.out.println(rand.iterator().next());
-//        }
-        unitTest("permutation4.txt");
-    }
+        int cycles = Integer.parseInt(args[0]);
+        RandomizedQueue rand = new RandomizedQueue<>();
 
-    public static void unitTest(String filename) {
-        Deque<String> rand = new Deque<>();
-        int elements = 0;
+        for (int i = 0; i < cycles; i++){
+            rand.enqueue(StdIn.readString());
+        }
 
-//        try {
-//            for (String line : Files.readAllLines(Paths.get(filename))){
-//                for (String part : line.split("\\s+")){
-//                    elements++;
-//                    rand.addFirst(part);
-//                }
-//            }
-//
-//
-//        } catch (Exception e) {
-//
-//        }
-
-
-        Iterator itr = rand.iterator();
-
-        while(itr.hasNext()) {
-            System.out.println(itr.next());
+        while(rand.iterator().hasNext()) {
+            System.out.println(rand.iterator().next());
         }
     }
-
 }
+
