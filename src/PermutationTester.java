@@ -1,57 +1,64 @@
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Iterator;
+import java.util.*;
 
 /**
  * Created by ryan on 2/1/17.
  */
 
 public class PermutationTester {
+
+    // to use this program, change the file name and specify number of elements to print
+    // to create a randomized queue, use dataType: RQ
+    // to create a Deque object, use: DQ
+
     public static void main(String[] args){
-        unitTest("permutation4.txt");
+        unitTest("duplicates.txt", 8, "RQ");
     }
 
-    public static void unitTest(String filename) {
+    public static void unitTest(String filename, int elements, String dataType) {
         Deque<String> dq = new Deque<>();
-        RandomizedQueue<Integer> rand = new RandomizedQueue<>();
-        int elements = 0;
+        RandomizedQueue<String> rand = new RandomizedQueue<>();
+        int counter = 0;
 
-//        try {
-//            for (String line : Files.readAllLines(Paths.get(filename))){
-//                for (String part : line.split("\\s+")){
-//                    elements++;
-//                    rand.addFirst(part);
-//                }
-//            }
-//
-//
-//        } catch (Exception e) {
-//
-//        }
-        rand.enqueue(1);
-        rand.enqueue(2);
-        rand.enqueue(3);
-        rand.enqueue(4);
-        rand.enqueue(5);
+        if(dataType == "RQ") {
+            try {
+                Scanner input = new Scanner(new File(filename));
 
-        Iterator itr = rand.iterator();
-        Iterator itr2 = rand.iterator();
+                while (input.hasNext()) {
+                    rand.enqueue(input.next());
+                }
+            } catch (FileNotFoundException e) {
+            }
 
-        while(itr.hasNext()){
-            System.out.println(itr.next());
+            while (counter < elements) {
+                System.out.println(rand.dequeue());
+                counter++;
+            }
         }
 
-        System.out.println();
-        while(itr2.hasNext()){
-            System.out.println(itr2.next());
+        if (dataType == "DQ"){
+                try {
+                    Scanner input = new Scanner(new File(filename));
+
+                    while (input.hasNext()) {
+                        dq.addLast(input.next());
+                    }
+                } catch (FileNotFoundException e) {
+                }
+
+                while (counter < elements) {
+                    System.out.println(dq.removeLast());
+                    counter++;
+                }
+
+        } else {
+            System.out.println("invalid Data Type entered.");
         }
-
-        System.out.println();
-        System.out.println(rand.sample());
-        System.out.println(rand.sample());
-        System.out.println(rand.sample());
-        System.out.println(rand.sample());
-
-
     }
 
 }

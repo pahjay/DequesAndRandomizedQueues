@@ -8,22 +8,26 @@ public class Deque<Item> implements Iterable<Item> {
     private Node head;
     private int n;
 
+    // Linked List object
     private class Node {
         private Item item;
         private Node next;
     }
 
-    public Deque(){
+    // constructor
+    public Deque() {
         head = null;
         n = 0;
     }
 
-    // BUG: after removing the only element in a list of size one, the head node does not == null
+    // returns true if the Deque is empty
+    public boolean isEmpty() { return head == null; }
 
-    public boolean isEmpty(){ return head == null; }
-    public int size(){ return n; }
+    // returns the size of the Deque
+    public int size() { return n; }
 
-    public void addFirst(Item item){
+    // creates a new Node object and adds it in the beginning
+    public void addFirst (Item item) {
         if (item == null) throw new NullPointerException();
 
         Node node = head;
@@ -33,10 +37,11 @@ public class Deque<Item> implements Iterable<Item> {
         n++;
     }
 
-    public void addLast (Item item){
+    // creates a new node object and adds it at the end
+    public void addLast (Item item) {
         if (item == null) throw new NullPointerException();
 
-        if(head == null){
+        if (head == null) {
             head = new Node();
             head.item = item;
             n++;
@@ -51,8 +56,9 @@ public class Deque<Item> implements Iterable<Item> {
         }
     }
 
+    // removes first Node object
     public Item removeFirst(){
-        if(head == null){
+        if(head == null) {
              throw new NoSuchElementException();
         } else {
             Item item = head.item;
@@ -62,6 +68,7 @@ public class Deque<Item> implements Iterable<Item> {
         }
     }
 
+    // removes last Node object
     public Item removeLast() {
         if(head == null){
             throw new NoSuchElementException();
@@ -69,11 +76,11 @@ public class Deque<Item> implements Iterable<Item> {
             Node node = head;
             Node prev = head;
 
-            if(head.next == null){
+            if(head.next == null) {
                 head = null;
             }
 
-            while (node.next != null){
+            while (node.next != null) {
                 prev = node;
                 node = node.next;
             }
@@ -86,10 +93,12 @@ public class Deque<Item> implements Iterable<Item> {
         }
     }
 
+    // overloads Iterator class
     public Iterator<Item> iterator(){
         return new ListIterator();
     }
 
+    // method overloads of Iterator
     private class ListIterator implements Iterator<Item> {
         private Node current = head;
         public boolean hasNext(){ return current != null; }

@@ -10,11 +10,13 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
     private int n;
     private Item[] a;
 
+    // constructer
     public RandomizedQueue() {
         a = (Item[]) new Object[2];
         n = 0;
     }
 
+    // resizes array
     private void resize(int capacity) {
         Item[] temp = (Item[]) new Object[capacity];
         for(int i = 0; i < n; i++){
@@ -23,12 +25,16 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
         a = temp;
     }
 
+    // returns true if array is empty
     public boolean isEmpty() { return n == 0; }
 
+    // returns size of array
     public int size() { return n; }
 
-
+    // adds new item to the array, if array is full it shuffles and then doubles the size
     public void enqueue(Item item) {
+        if(item == null) throw new NullPointerException();
+
         a[n++] = item;
         if (n == a.length) {
             StdRandom.shuffle(a);
@@ -36,27 +42,40 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
         }
     }
 
+    // removes item from array uniformly at random
     public Item dequeue() {
         if (n == 0) {
             throw new NoSuchElementException();
         } else {
-            Item item = a[n - 1];
-            a[n - 1] = null;
+            // resize array to eliminate trailing null values
+            resize(n);
+            int index = StdRandom.uniform(n);
+            // grab item to be returned and removed
+            Item item = a[index];
+            a[index] = null;
 
-            if (n == (a.length / 2)) {
-                resize(n);
+            // move over values if necessary
+            while(index + 1 < n){
+                a[index] = a[index+1];
+                index++;
             }
 
-            n--;
+            // resize if necessary
+            if (n == (a.length / 2)) {
+                resize(n);
+            } else {
+                n--;
+            }
             return item;
         }
     }
 
+    // returns random array element at random
     public Item sample() {
         if (n == 0) {
             throw new NoSuchElementException();
         } else {
-            return a[StdRandom.uniform(n-1)];
+            return a[StdRandom.uniform(n)];
         }
     }
 
