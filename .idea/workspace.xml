@@ -2,11 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="21ebd117-2c89-4847-b7a9-60d6f1a74340" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GraderOutput" afterPath="$PROJECT_DIR$/GraderOutput" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Deque.java" afterPath="$PROJECT_DIR$/src/Deque.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Permutation.java" afterPath="$PROJECT_DIR$/src/Permutation.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PermutationTester.java" afterPath="$PROJECT_DIR$/src/PermutationTester.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/RandomizedQueue.java" afterPath="$PROJECT_DIR$/src/RandomizedQueue.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/queues/distinct.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/queues/duplicates.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/queues/mediumTale.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/queues/permutation10.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/queues/permutation4.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/queues/permutation5.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/queues/permutation6.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/queues/permutation8.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/queues/tale.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/queues/tinyTale.txt" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -66,14 +73,27 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Deque.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Deque.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Deque.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-436">
-              <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+            <state relative-caret-position="362">
+              <caret line="59" column="30" lean-forward="true" selection-start-line="59" selection-start-column="30" selection-end-line="59" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="0">
+                <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="8" selection-end-column="88" />
+                <folding />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -181,6 +201,7 @@
         <option value="$PROJECT_DIR$/src/PermutationTester.java" />
         <option value="$PROJECT_DIR$/src/Permutation.java" />
         <option value="$PROJECT_DIR$/src/Deque.java" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -640,14 +661,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Permutation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="4" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/distinct.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1064,11 +1077,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Deque.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-436">
-          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+        <state relative-caret-position="362">
+          <caret line="59" column="30" lean-forward="true" selection-start-line="59" selection-start-column="30" selection-end-line="59" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="0">
+            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="8" selection-end-column="88" />
+            <folding />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
